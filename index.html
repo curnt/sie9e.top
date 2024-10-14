@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Bio Link</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'GG Sans';
+            src: url('files/GG Sans Medium.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: 'GG Sans', sans-serif; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            position: relative;
+            overflow: hidden; 
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding-right: 30px;
+        }
+        .container::after {
+            content: '';
+            opacity: 0.7;
+            width: 3px;
+            background-color: white;
+            height: 950px;
+            position: absolute;
+            right: -17px;
+            top: 0;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-left: 10px;
+            transition: opacity 0.3s;
+        }
+        h1:hover {
+            opacity: 0.6;
+        }
+        .link {
+            background-color: #1e1e1e;
+            border-radius: 5px;
+            padding: 10px 15px;
+            margin: 10px 0;
+            text-decoration: none;
+            color: #ffffff;
+            transition: background-color 0.3s, transform 0.3s;
+            text-align: center;
+            display: inline-flex;
+            align-items: center;
+            max-width: 300px;
+            width: 100%;
+        }
+        .link img {
+            width: 20px; 
+            height: auto; 
+            margin-right: 10px;
+        }
+        .link:hover {
+            background-color: #333333;
+            transform: scale(1.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        .images-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .top-image {
+            width: 415px;
+            height: auto;
+            border-radius: 20px;
+            transition: transform 0.3s ease; 
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        .base-direct-container {
+            display: flex;
+            flex-direction: column; 
+            align-items: center; 
+            margin-top: 10px; 
+        }
+        .base-direct-container a {
+            margin-bottom: 10px; 
+        }
+        .top-image:hover {
+            transform: scale(1.045);
+        }
+        .profile-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 10px;
+            transition: opacity 0.3s;
+        }
+        .glow {
+            filter: drop-shadow(0 0 2px rgba(173, 255, 47, 0.7)) 
+                    drop-shadow(0 0 4px rgba(173, 255, 47, 0.7));
+        }
+        .title {
+            position: absolute;
+            top: 25px; 
+            text-align: center;
+            font-size: 2rem;
+            color: #ffffff;
+            transition: opacity 0.3s; 
+        }
+        .title:hover {
+            opacity: 0.6; 
+        }
+        .footer-text {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            opacity: 0.3;
+            font-size: 0.8rem; 
+        }
+    </style>
+</head>
+<body oncontextmenu="return false;"> <!-- Disable right-click -->
+
+    <div class="title">Build Portfolios:</div>
+    
+    <div class="container">
+        <div class="header">
+            <img src="files/sie9e.png" alt="Profile Picture" class="profile-image">
+            <h1 id="title">> Siege</h1>
+        </div>
+        <a class="link" href="#" id="portfolio-link">
+            <img src="files/portfolio-icon.png" alt="Portfolio Icon"> Build Portfolio
+        </a>
+        <a class="link" href="https://discordapp.com/users/542299705464586240" target="_blank">
+            <img src="files/discord-icon.png" alt="Discord Icon"> Discord
+        </a>
+    </div>
+    
+    <audio id="audio" src="files/sigma.mp3"></audio>
+    <audio id="hm-audio" src="files/hm.mp3"></audio>
+
+    <div class="images-container">
+        <a href="Bee Portfolio.html" class="top-image glow" id="image111-img">
+            <img src="files/image111.png" alt="New Image" class="top-image"> 
+        </a>
+        <div class="base-direct-container">
+            <a href="portfolio.html" class="top-image glow" id="base-img">
+                <img src="files/base.png" alt="Portfolio Image" class="top-image"> 
+            </a>
+            <a href="Bee Portfolio.html" class="top-image glow" id="direct-img">
+                <img src="files/direct.png" alt="Direct Image" class="top-image"> 
+            </a>
+        </div>
+    </div>
+
+    <div class="footer-text">Made by Albert</div> 
+
+    <script>
+        const discordLink = document.querySelector('a[href="https://discordapp.com/users/542299705464586240"]');
+        const audio = document.getElementById('audio');
+        const portfolioLink = document.getElementById('portfolio-link');
+        const hmAudio = document.getElementById('hm-audio');
+
+        portfolioLink.addEventListener('click', (event) => {
+            event.preventDefault();
+            hmAudio.play();
+        });
+
+        function setRandomGlow() {
+            const images = document.querySelectorAll('.glow');
+            images.forEach(img => {
+                const randomColor = Math.floor(Math.random() * 3);
+                const colors = [
+                    'rgba(173, 255, 47, 0.7)',
+                    'rgba(255, 255, 0, 0.7)',
+                    'rgba(0, 255, 255, 0.7)'
+                ];
+                img.style.filter = `drop-shadow(0 0 2px ${colors[randomColor]}) drop-shadow(0 0 4px ${colors[randomColor]})`;
+            });
+        }
+
+        window.onload = setRandomGlow;
+    </script>
+    
+</body>
+</html>
